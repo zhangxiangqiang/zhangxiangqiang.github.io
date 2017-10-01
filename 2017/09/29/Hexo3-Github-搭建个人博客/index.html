@@ -6,6 +6,7 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
+
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -50,7 +51,20 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Hexo,Github,博客," />
@@ -62,25 +76,38 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
-
-
-
-
-<meta name="description" content="前言Hexo是一款基于Node.js的静态博客框架,依赖少易于安装使用，可以方便的生成静态网页托管在GitHub上，非常方便，遗憾的是，目前网上，用hexo搭建个人博客大多基于hexo2， 我结合自己搭建博客的实践与这两天踩的坑，总结一份教程，后来之人，能少踩一些坑，吾之愿也。 搭建步骤：  配置Hexo安装环境 安装Hexo 配置Github与推送网站 订制个性化域名 一些基本配置 尾声  配置">
+<meta name="description" content="前言Hexo是一款基于Node.js的静态博客框架,依赖少易于安装使用，可以方便的生成静态网页托管在GitHub上，非常方便，遗憾的是，目前网上，用hexo搭建个人博客大多基于hexo2， 我结合自己搭建博客的实践与这两天踩的坑，总结一份教程，后来之人，能少踩一些坑，吾之愿也。 搭建步骤：  配置Hexo安装环境 安装Hexo 配置Github与推送网站 订制个性化域名 一些基本配置 尾声">
 <meta name="keywords" content="Hexo,Github,博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo3 + Github 搭建个人博客">
 <meta property="og:url" content="http://helloqiang.top/2017/09/29/Hexo3-Github-搭建个人博客/index.html">
 <meta property="og:site_name" content="Qiang&#39;s blog">
-<meta property="og:description" content="前言Hexo是一款基于Node.js的静态博客框架,依赖少易于安装使用，可以方便的生成静态网页托管在GitHub上，非常方便，遗憾的是，目前网上，用hexo搭建个人博客大多基于hexo2， 我结合自己搭建博客的实践与这两天踩的坑，总结一份教程，后来之人，能少踩一些坑，吾之愿也。 搭建步骤：  配置Hexo安装环境 安装Hexo 配置Github与推送网站 订制个性化域名 一些基本配置 尾声  配置">
+<meta property="og:description" content="前言Hexo是一款基于Node.js的静态博客框架,依赖少易于安装使用，可以方便的生成静态网页托管在GitHub上，非常方便，遗憾的是，目前网上，用hexo搭建个人博客大多基于hexo2， 我结合自己搭建博客的实践与这两天踩的坑，总结一份教程，后来之人，能少踩一些坑，吾之愿也。 搭建步骤：  配置Hexo安装环境 安装Hexo 配置Github与推送网站 订制个性化域名 一些基本配置 尾声">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T13:18:05.934Z">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/1.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/2.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/3.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/4.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/5.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/6.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/7.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/8.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/9.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/10.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/11.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/12.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/13.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/14.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/15.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/16.png">
+<meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/17.png">
+<meta property="og:updated_time" content="2017-10-01T03:00:39.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo3 + Github 搭建个人博客">
-<meta name="twitter:description" content="前言Hexo是一款基于Node.js的静态博客框架,依赖少易于安装使用，可以方便的生成静态网页托管在GitHub上，非常方便，遗憾的是，目前网上，用hexo搭建个人博客大多基于hexo2， 我结合自己搭建博客的实践与这两天踩的坑，总结一份教程，后来之人，能少踩一些坑，吾之愿也。 搭建步骤：  配置Hexo安装环境 安装Hexo 配置Github与推送网站 订制个性化域名 一些基本配置 尾声  配置">
+<meta name="twitter:description" content="前言Hexo是一款基于Node.js的静态博客框架,依赖少易于安装使用，可以方便的生成静态网页托管在GitHub上，非常方便，遗憾的是，目前网上，用hexo搭建个人博客大多基于hexo2， 我结合自己搭建博客的实践与这两天踩的坑，总结一份教程，后来之人，能少踩一些坑，吾之愿也。 搭建步骤：  配置Hexo安装环境 安装Hexo 配置Github与推送网站 订制个性化域名 一些基本配置 尾声">
+<meta name="twitter:image" content="http://ox34p6xhh.bkt.clouddn.com/1.png">
 
 
 
@@ -89,11 +116,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -122,6 +149,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dce3efa87eed29ce64865bc3a776b883";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -258,7 +295,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qiang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -322,17 +359,6 @@
 
           
           
-             <span id="/2017/09/29/Hexo3-Github-搭建个人博客/" class="leancloud_visitors" data-flag-title="Hexo3 + Github 搭建个人博客">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -347,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,568
+                  2,330
                 </span>
               
 
@@ -394,6 +420,7 @@
 <li>一些基本配置</li>
 <li>尾声</li>
 </ul>
+<a id="more"></a> 
 <h2 id="配置Hexo安装环境"><a href="#配置Hexo安装环境" class="headerlink" title="配置Hexo安装环境"></a>配置Hexo安装环境</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>安装Node.js会包含设置环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入： node -v ，检测npm是否安装成功，在命令行中输入：npm -v</p>
 <h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>安装git后，要注册一个Github账号，然后打开Git Bash，将你的Git与GitHub帐号绑定，执行命令：</p>
 <ul>
@@ -420,9 +447,9 @@
 <li>初始化我们的博客,执行命令：hexo init myblog(名字随意,我们的站点文件将在其中生成）</li>
 </ul>
 <p>若是出现如下提示，则表示初始化成功（下面两个warn 可以忽略，若是初始化不成功，请检查hexo是否安装好，是否换源）</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/1.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/1.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>现在我们打开myblog 可以看见如下内容：</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/2.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/2.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>执行命令： cd myblog ，进入到myblog(有站点文件的myblog)内，依次运行如下命令：</p>
 <ul>
 <li><p>npm install</p>
@@ -431,9 +458,9 @@
 </li>
 </ul>
 <p>若是服务器成功运行，我们将看到如下提示：</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/3.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/3.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>这时我们可以打开浏览器用localhost:4000查看，会出现如下画面, 怎么样，是不是感觉自己帅的一沓糊涂!</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/3.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/4.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>等等，别急，虽然我们已经完成了最容易掉到坑里的部分，但是，后面还有一些小小的挑战等着我们，现在让我们扫扫hexo常用命令冷静一下：</p>
 <h3 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h3><p>npm install hexo -g #安装Hexo</p>
 <p>npm update hexo -g #升级 </p>
@@ -449,30 +476,30 @@
 <p>hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</p>
 <h2 id="配置Github与推送网站"><a href="#配置Github与推送网站" class="headerlink" title="配置Github与推送网站"></a>配置Github与推送网站</h2><p>好了，接下来，就让我们鱼归大海，龙翔九天，咳咳，也就是推送网站，让我们的网站可以在网上被更多的人访问，首先我们需要配置Github。</p>
 <h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><p>点击GitHub中的New repository创建新仓库，仓库名应该为：用户名 .github.io ,这是固定写法，可以观摩下图：</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/3.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/5.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>新仓库创建好后，需要生成ssh密钥文件，Git Bash中，执行命令:</p>
 <p>ssh-keygen -t rsa -C “你的GitHub注册邮箱”</p>
 <p>可以观摩下图：</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/4.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/6.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制，然后进入Github 中点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容:</p>
 <p>可以观摩下图：</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/6.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/7.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>在Git Bash中检测GitHub密钥设置是否成功，执行命令： ssh git@github.com</p>
 <h3 id="安装依赖包与-config-yml修改"><a href="#安装依赖包与-config-yml修改" class="headerlink" title="安装依赖包与_config.yml修改"></a>安装依赖包与_config.yml修改</h3><p>npm install hexo-deployer-git –save</p>
 <p>在myblog内,打开站点配置文件 _config.yml ，将对应代码改成下图模式将我们的Hexo与GitHub关联起来，注意冒号后有空格：</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/6.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/8.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>进入git bash 中，进入 依次运行下面命令部署网站，出现 IN Deploy done则表示部署成功 ： </p>
 <p>hexo clean </p>
 <p>hexo generate </p>
 <p>hexo deploy</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/7.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/8.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/9.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/10.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>然后，在浏览器中输入<a href="http://yourgithubname.github.io" target="_blank" rel="external">http://yourgithubname.github.io</a> 就可以看到你的个人博客：</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/8.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/11.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <h2 id="订制个性化域名"><a href="#订制个性化域名" class="headerlink" title="订制个性化域名"></a>订制个性化域名</h2><p>什么啊？我们的网址没有我们的标志，这不科学！</p>
 <p>别急，这根本不叫事。</p>
 <p>现在可以去阿里云或腾讯云买个域名，然后进入管理控制台的域名列表，找到你的个性化域名，进入解析，订制我们的个性化域名，此处用的是阿里云：</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/10.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/12.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>在上图三个箭头处，依次添加三条解析记录，如下：</p>
 <p> A  &amp;npsp&amp;npsp           @     &amp;npsp&amp;npsp                  192.30.252.153</p>
 <p> A  &amp;npsp&amp;npsp           @     &amp;npsp&amp;npsp                  192.30.252.154</p>
@@ -481,7 +508,7 @@
 <p>然后，进入本地博客文件夹 ，进入myblog/source目录下，创建一个txt文件，输入你的域名，对，只要写进你自己买的的域名即可（带不带www都行，建议不带）：</p>
 <p>如： helloqiang.top , 将此文件命名：CNAME（保存时去掉txt格式符）</p>
 <p>现在需要登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名：</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/10.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/13.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>然后，打开myblog下的<strong>站点配置文件</strong>_config.yml，在url后添加你的博客地址，可以参考我的：</p>
 <p>url:&amp;nbsp <a href="http://helloqiang.top">http://helloqiang.top</a></p>
 <p>现在，依次执行命令：</p>
@@ -490,15 +517,15 @@
 <h2 id="一些基本配置"><a href="#一些基本配置" class="headerlink" title="一些基本配置"></a>一些基本配置</h2><h3 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h3><p>hexo 主题有很多种（主题传送门：<a href="https://hexo.io/themes/" target="_blank" rel="external">Themes</a>）,这里我们选择简洁大方的Next 主题，首先将Next主题下载到myblog目录的themes主题下的next文件夹中,Git Bash中：</p>
 <p>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a>  themes/next</p>
 <p>然后打开myblog下的<strong>站点配置文件</strong>_config.yml，修改主题为next:</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/11.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/14.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>在myblog目录中的themes中，打开<strong>主题配置文件</strong>_config.yml，找到Schemes，如下:</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/12.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/15.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>Next主题下有四个细分，我们四选一，取消注释，再次部署网站，hexo g、hexo s -debug，我们使用浏览器访问 <a href="http://localhost:4000，查看效果。" target="_blank" rel="external">http://localhost:4000，查看效果。</a></p>
 <p>这里把next 主题展示一下：</p>
 <p>Gemini</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/13.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/16.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>Muse、Pisces Mist类似</p>
-<p>！<a href="http://ox34p6xhh.bkt.clouddn.com/13.png" target="_blank" rel="external">时光怕我太骄傲，爱装严酷和我闹</a></p>
+<p><img src="http://ox34p6xhh.bkt.clouddn.com/17.png" alt="时光怕我太骄傲，爱装严酷和我闹"></p>
 <p>当然，<strong>站点配置文件</strong>和<strong>主题配置文件</strong>_config.yml还可以很容易地配置语言、图像、签名、菜单的显示、图标等，我就不一一细讲了，网上很容易查到，至于更多，更酷炫的功能就需要自己去折腾了。</p>
 <p>接下来呢，我简单介绍一下博客编辑器和图床，然后就结束了哦。</p>
 <h3 id="博客文章编辑"><a href="#博客文章编辑" class="headerlink" title="博客文章编辑"></a>博客文章编辑</h3><p>我们使用markdown，当然别的编辑器也可以，只不过markdown就是专门为那些经常码字或者进行文字排版的、对码字手速和排版顺畅度有要求的人群设计的，他们希望用键盘把文字内容啪啪啪地打出来后就已经排版好了。这些人包括经常需要写文档的码农、博客写手、网站小编、出版业人士等等，总之说的就是我们。</p>
@@ -560,9 +587,11 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
 
 
         </div>
@@ -585,78 +614,87 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Qiang" />
+            
+              <p class="site-author-name" itemprop="name">Qiang</p>
+              <p class="site-description motion-element" itemprop="description">时光怕我太骄傲</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
           
-            <img class="site-author-image" itemprop="image"
-              src="/images/avatar.png"
-              alt="Qiang" />
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhangxiangqiang" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
           
-            <p class="site-author-name" itemprop="name">Qiang</p>
-            <p class="site-description motion-element" itemprop="description">时光怕我太骄傲</p>
+          
+
+          
+          
+
+          
+
         </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-            
-              <a href="/archives/">
-            
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -689,12 +727,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Qiang</span>
 
@@ -702,11 +737,17 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by"></div>
 
-  <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+
+  <span class="post-meta-divider"></span>
+
+
+
+
+
+
 
 
         
@@ -749,6 +790,8 @@
   
 
 
+  
+
 
 
 
@@ -777,13 +820,16 @@
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
@@ -791,22 +837,22 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
 
 
 
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
 
 
   
 
-  
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -848,111 +894,6 @@
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("tAsNLn0Eb4PLviTssGeQ1xLs-gzGzoHsz", "qNooYapp6PYxzKWHd25GrPbL");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 
@@ -961,11 +902,6 @@
   
 
   
-
-  
-
-   <a href="https://github.com/zhangxiangqiang"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6286ade715e9bea433b4705870de482a654f78a/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png"></a>
-
 
 </body>
 </html>
