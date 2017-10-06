@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言MySQL 目前是最流行的开源关系型 SQL 数据库管理系统，是一种用于最适于开发 Web 软件应用的 RDBMS，很多企业都在使用它来构建自己的数据库 MySQL安装由于MySQL安装十分简单，这里不过多介绍，去官网下载安装就是了，值得注意的有两点，一是，安装时的选项有typical,custom,和complete,分别表示典型安装，自定义安装，和完全安装，新手建议选择典型安装。二是，注意">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL 基础">
+<meta property="og:url" content="http://helloqiang.top/2017/10/03/MySQL-基础/index.html">
+<meta property="og:site_name" content="Qiang&#39;s blog">
+<meta property="og:description" content="前言MySQL 目前是最流行的开源关系型 SQL 数据库管理系统，是一种用于最适于开发 Web 软件应用的 RDBMS，很多企业都在使用它来构建自己的数据库 MySQL安装由于MySQL安装十分简单，这里不过多介绍，去官网下载安装就是了，值得注意的有两点，一是，安装时的选项有typical,custom,和complete,分别表示典型安装，自定义安装，和完全安装，新手建议选择典型安装。二是，注意">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-06T14:19:34.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL 基础">
+<meta name="twitter:description" content="前言MySQL 目前是最流行的开源关系型 SQL 数据库管理系统，是一种用于最适于开发 Web 软件应用的 RDBMS，很多企业都在使用它来构建自己的数据库 MySQL安装由于MySQL安装十分简单，这里不过多介绍，去官网下载安装就是了，值得注意的有两点，一是，安装时的选项有typical,custom,和complete,分别表示典型安装，自定义安装，和完全安装，新手建议选择典型安装。二是，注意">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://helloqiang.top/2017/10/03/MySQL-基础/"/>
+
+
+
+
+
+  <title>MySQL 基础 | Qiang's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dce3efa87eed29ce64865bc3a776b883";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qiang's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://helloqiang.top/2017/10/03/MySQL-基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qiang's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL 基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-03T15:05:58+08:00">
+                2017-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/03/MySQL-基础/" class="leancloud_visitors" data-flag-title="MySQL 基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,704
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>MySQL 目前是最流行的开源关系型 SQL 数据库管理系统，是一种用于最适于开发 Web 软件应用的 RDBMS，很多企业都在使用它来构建自己的数据库</p>
+<h2 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h2><p>由于MySQL安装十分简单，这里不过多介绍，去官网下载安装就是了，值得注意的有两点，一是，安装时的选项有typical,custom,和complete,分别表示典型安装，自定义安装，和完全安装，新手建议选择典型安装。二是，注意将其添加到环境变量。</p>
+<h2 id="MySQL基本操作"><a href="#MySQL基本操作" class="headerlink" title="MySQL基本操作"></a>MySQL基本操作</h2><h3 id="MySQL-语句规范"><a href="#MySQL-语句规范" class="headerlink" title="MySQL 语句规范"></a>MySQL 语句规范</h3><p>在最开始，介绍一下MySQL 语句规范，养成良好的习惯：</p>
+<ul>
+<li>关键字和函数名称全部大写</li>
+<li>数据库名称、表名称、字段名称全部小写</li>
+<li>SQL 语句必须以分号结尾<a id="more"></a>
+###登录与退出 </li>
+</ul>
+<p>在登录之前，我先介绍一下有关参数：</p>
+<p>-D &nbsp;&nbsp;&nbsp;&nbsp; 打开指定数据库</p>
+<p>-h &nbsp;&nbsp;&nbsp;&nbsp; 服务器名称（默认localhost）</p>
+<p>-p &nbsp;&nbsp;&nbsp;&nbsp; 密码</p>
+<p>-P &nbsp;&nbsp;&nbsp;&nbsp; 端口号（默认3306）</p>
+<p>-u &nbsp;&nbsp;&nbsp;&nbsp; 用户名</p>
+<p>-V &nbsp;&nbsp;&nbsp;&nbsp; 输出版本信息并退出</p>
+<p>那么，我登录的时候会用： mysql -uroot -p </p>
+<p>然后输入密码就可以了，其中，root是我的用户名（MySQL中有一个超级用户叫root)。当然你也可以输入端口号和服务器名，若是采用默认就不用输了。</p>
+<p>退出就简单了：quit; 或 exit; 或 \q; 都行</p>
+<p>###修改提示符</p>
+<p>补充一点，默认提示符是 &gt; , 我们可以用 PROMPT + 新提示符&nbsp;&nbsp;去修改它，这里有几个参数与这个命令有关，可以选择加到命令后面：</p>
+<p>\D &nbsp;&nbsp;&nbsp;&nbsp; 日期</p>
+<p>\d &nbsp;&nbsp;&nbsp;&nbsp; 当前数据库</p>
+<p>\h &nbsp;&nbsp;&nbsp;&nbsp; 服务器名称</p>
+<p>\u &nbsp;&nbsp;&nbsp;&nbsp; 当前用户</p>
+<p>###数据库的增删改查</p>
+<p>增：</p>
+<p>CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name</p>
+<p>其中花括号{}代表必选项，| 表从其中选择，中括号[]表可选项，有或没有都行。总体来看，其实只有CREATE {DATABASE | SCHEMA} db_name是必选的，举个栗子，创建数据库d1:</p>
+<p>CREATE DATABASE d1;</p>
+<p>查：</p>
+<p>现在可以查看一下当前服务器的数据库列表：&nbsp;&Cnbsp;SHOW  {DATABASES | SCHEMAS}</p>
+<p>查看数据库的参数： &nbsp;&nbsp; SHOW CREATE DATABASE d1;</p>
+<p>查看警告: &nbsp;&nbsp; SHOW WARNINGS;</p>
+<p>改：</p>
+<p>修改数据库：&nbsp;&nbsp; ALTER {DATABASE | SCHEMA} [db_name]<br>[DEFAULT]  CHARACTER SET [=] charset_name</p>
+<p>删：</p>
+<p>DROP {DATABASE | SCHEMA} [IF EXISTS] db_name</p>
+<h2 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h2><p>MySQL使用的多种数据类型可分为三类：数字、日期与时间，以及字符串类型。</p>
+<h3 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h3><ul>
+<li>INT 正常大小的整数，可以有符号，也可以没有符号(UNSIGNED)。如果是有符号整数，其允许的取值范围是-2147483648~2147483647；无符号整数的取值范围是从0至4294967295。最高可指定11位数字。</li>
+</ul>
+<ul>
+<li><p>TINYINT 非常小的整数，分为有无符号两种。前有符号时，其允许取值范围是-128~127；无符号时的取值范围为0~255。所以，最高可指定4位数字。</p>
+</li>
+<li><p>SMALLINT 较小的整数，分为有无符号两种。前有符号时，其允许取值范围是-32768~32767；无符号时的取值范围为0~65535。所以最高可指定5位数字。</p>
+</li>
+<li><p>MEDIUMINT 中型大小的整数，分为有无符号两种。前有符号时，其允许取值范围是-8388608~8388607；无符号时的取值范围为0~16777215。所以，最高可指定9位数字。</p>
+</li>
+<li><p>BIGINT 较大型的整数，分为有无符号两种。前有符号时，其允许取值范围为-9223372036854775808~9223372036854775807；无符号时的取值范围为0~18446744073709551615。最高可指定20位数字。</p>
+</li>
+</ul>
+<ul>
+<li>FLOAT(M,D) 不带符号的浮点数。M 代表显示长度，D 代表小数位数。这两个参数都不是必需参数，它们默认为10, 2，表示小数点后有2位数字，而整个数字的位数为10（包含小数位数）。FLOAT 类型的小数精度可以达到24位。</li>
+</ul>
+<ul>
+<li>DOUBLE(M,D) 不带符号的双精度浮点数。M 代表显示长度，D 代表小数位数。这两个参数都不是必需参数，它们默认为16, 4，表示小数点后有4位数字，而整个数字的位数为 16（包含小数位数）。DOUBLE 类型的小数精度可以达到53位。DOUBLE 与 REAL 同义。</li>
+</ul>
+<ul>
+<li>DECIMAL(M,D) 非压缩的无符号浮点数。 在未压缩十进制中，每一位十进制数都对应一个字节。需要定义显示长度（M）和小数位数（D）。DECIMAL 与 NUMERIC 同义。</li>
+</ul>
+<h3 id="日期与时间类型"><a href="#日期与时间类型" class="headerlink" title="日期与时间类型"></a>日期与时间类型</h3><ul>
+<li>DATE YYYY-MM-DD （年-月-日）格式显示的日期，取值范围从1000-01-01 到 9999-12-31。比如1973年的12月30日就存为 1973-12-30。</li>
+</ul>
+<ul>
+<li>DATETIME 按照 YYYY-MM-DD HH:MM:SS 格式组合显示的日期与时间，取值范围从1000-01-01 00:00:00 到 9999-12-31 23:59:59。比如说1973年的12月30日下午3 : 30就存为1973-12-30 15 : 30 : 00。</li>
+</ul>
+<ul>
+<li>TIMESTAMP 介于1970年1月1日凌晨与2037年某个时间点之间的一种时间戳。这种格式与之前的 DATETIME 格式相仿，只不过少了数字间的连字符。1973年12月30日下午3 : 30被存为19731230153000（YYYYMMDDHHMMSS）。</li>
+</ul>
+<ul>
+<li>TIME 按照 HH:MM:SS 格式存储的时间。<br>YEAR(M) 用2位或4位格式存储的时间。如果把长度定为2，比如说YEAR(2)，那么可以表示从1970年到2069年的这些年份（70-69）。如果把长度定为4，YEAR(4)，则可以表示从1901年到2155年。默认长度为4。</li>
+</ul>
+<p>###字符串类型</p>
+<ul>
+<li>CHAR(M) 长度固定的字符串，长度范围从1~255个字符，比如CHAR(5)。在存储时，会向右用空格补齐指定长度。长度并非必须参数，默认长度为1。</li>
+</ul>
+<ul>
+<li>VARCHAR(M) 长度不定的字符串，长度范围从1~255个字符。比如：CHAR(25)。在创建VARCHAR字段时，必须定义长度。</li>
+</ul>
+<ul>
+<li>BLOB or TEXT 最大长度为65535个字符的字段。BLOB是Binary Large Objects（二进制大型对象）的缩写，专用于保存大量的二进制数据，比如图片或其他类型的文件。TEXT 类型的文件也能保存大型数据。这两者的区别在于存储数据的排序和对比方面，BLOB类型数据是大小写敏感的，而TEXT类型数据则不是。另外，不能指定它们的长度。</li>
+</ul>
+<ul>
+<li>TINYBLOB or TINYTEXT 最大长度为255个字符的 BLOB 或 TEXT 字段。同样也不能指定它们的长度。</li>
+</ul>
+<ul>
+<li>MEDIUMBLOB or MEDIUMTEXT 最大长度为16777215个字符的 BLOB 或 TEXT 字段。同样也不能指定它们的长度。</li>
+</ul>
+<ul>
+<li>LONGBLOB or LONGTEXT 最大长度为4294967295个字符的 BLOB 或 TEXT 字段。同样也不能指定它们的长度。</li>
+</ul>
+<ul>
+<li>ENUM 枚举类型，是一种很独特的列表类型。ENUM 类型的数据实际是一个包含多个固定值的列表，只能选择这些值（包括 NULL 值）。例如，如果希望某个字段包含 “A”、”B” 和 “C”，必须这样定义：ENUM (‘A’, ‘B’, ‘C’)，只有这些值（或 NULL 值）能够填充到该字段中。</li>
+</ul>
+<h2 id="数据表的增查"><a href="#数据表的增查" class="headerlink" title="数据表的增查"></a>数据表的增查</h2><h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><ul>
+<li><p>打开数据库： &nbsp; USE 数据库名称</p>
+</li>
+<li><p>显示当前数据库 ： &nbsp;SELECT DATABASE();</p>
+</li>
+<li><p>创建数据表: &nbsp;CREATE TABLE [IF NOT EXISTS] table_name(column_name data_type, …)</p>
+</li>
+</ul>
+<p>举个栗子,创建一个表有用户名，年龄，工资字段：</p>
+<p>CREATE TABLE tb1(username VARCHAR(20), age TINYINT UNSIGNED, salary FLOAT(8,2) UNSIGNED);</p>
+<h3 id="查看数据表"><a href="#查看数据表" class="headerlink" title="查看数据表"></a>查看数据表</h3><ul>
+<li><p>查看数据表列表: &nbsp;SHOW TABLES [FROM db_name] [LIKE ‘pattern’ | WHERE expr]</p>
+</li>
+<li><p>查看数据表: &nbsp; SHOW COLUMNS FROM table_name; </p>
+</li>
+</ul>
+<h2 id="记录的增查"><a href="#记录的增查" class="headerlink" title="记录的增查"></a>记录的增查</h2><h3 id="向数据表中插入记录"><a href="#向数据表中插入记录" class="headerlink" title="向数据表中插入记录"></a>向数据表中插入记录</h3><p>INSERT [INTO] table_name [(column_name,..)] VALUES(values,…)</p>
+<p>注意：若是省略column_name，则必须为所有字段赋值</p>
+<p>举个栗子，在tb1中添加一项记录：&nbsp; INSERT tb1 VALUES(“Tom”,25, 24342.32);</p>
+<h3 id="记录的查找（SELECT"><a href="#记录的查找（SELECT" class="headerlink" title="记录的查找（SELECT)"></a>记录的查找（SELECT)</h3><p>SELECT expr, … FROM table_name</p>
+<p>注意： expr 表示表达式</p>
+<p>举个栗子，查找tb1所有记录：&nbsp; SELECT * FROM tb1;</p>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p>###非空约束</p>
+<p>字段可以为空：&nbsp; NULL</p>
+<p>字段禁止为空：&nbsp; NOT NULL</p>
+<h3 id="自动编号"><a href="#自动编号" class="headerlink" title="自动编号"></a>自动编号</h3><p> AUTO_INCREMENT</p>
+<ul>
+<li><p>自动编号，且必须与主键组合使用</p>
+</li>
+<li><p>默认起始值为1，每次增量为1</p>
+</li>
+</ul>
+<p>举个栗子：</p>
+<p>CREATE TABLE tb3(id TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, username VARCHAR(20) NOT NULL);</p>
+<h3 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h3><p>PRIMARY KEY</p>
+<ul>
+<li>主键约束</li>
+<li>每张数据表只能存在一个主键</li>
+<li>主键保证记录的唯一性</li>
+<li>主键自动为NOT NULL</li>
+</ul>
+<h3 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h3><p>UNIQUE KEY</p>
+<ul>
+<li>唯一约束可以保证记录的唯一性</li>
+<li>字段可以为空（NULL)</li>
+<li>每张数据表可以存在多个唯一约束</li>
+</ul>
+<h3 id="默认约束"><a href="#默认约束" class="headerlink" title="默认约束"></a>默认约束</h3><p>DEFAULT</p>
+<ul>
+<li>默认值</li>
+</ul>
+<p>举个栗子:</p>
+<p>CREATE TABLE tb6(id TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, username VARCHAR(20) NOT NULL UNIQUE KEY,<br>sex ENUM(“1”, “2”, “3”) DEFAULT “3”)</p>
+<h3 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h3><p>FOREIGN KEYp</p>
+<p>保证数据的一致性，完整性，实现一对一    或一对多关系</p>
+<p>外键约束有一些要求：</p>
+<ul>
+<li>数据表存储引擎只能为InnoDB</li>
+<li>外键列和参照列必须有相似的数据类型，其中数字长度或是否有符号位必须相同；而字符长度则可以不同</li>
+<li>外键列和参照列必须创建索引，如果外键列不存在索引的话，MySQL将自动创建索引</li>
+</ul>
+<p>若引擎不是INNODB的话，需要编辑数据表默认引擎：<br>MYSQL配置文件： &nbsp; default-storage-engine=INNODB</p>
+<p>举个栗子：</p>
+<p>创建一个省份表：</p>
+<p>CREATE TABLE provinces(id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, pname VARCHAR(20) NOT NULL);</p>
+<p>创建一个用户表：</p>
+<p>CREATE TABLE users(id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,username VARCHAR(10) NOT NULL, pid SMALLINT UNSIGNED, FOREIGN KEY (pid) REFERENCES provinces(id));</p>
+<h2 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h2><h3 id="添加列"><a href="#添加列" class="headerlink" title="添加列"></a>添加列</h3><ul>
+<li>添加单列</li>
+</ul>
+<p>ALTER TABLE table_name ADD [COLUMN] column_name column_definition [FIRST | AFTER column_name]</p>
+<p>举个栗子，在users中增加列：</p>
+<p>ALTER TABLE users ADD age TINYINT UNSIGNED NOT NULL DEFAULT 10;</p>
+<ul>
+<li>添加多列</li>
+</ul>
+<p>ALTER TABLE table_name ADD [COLUMN] (column_name column_definition, …)</p>
+<h3 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h3><p>ALTER TABLE table_name DROP [COLUMN] column_name</p>
+<p>举个栗子，在users中删除列：</p>
+<p>ALTER TABLE users DROP age;</p>
+<p>若要删除多列，在其后加DROP column_name 用逗号分开即可</p>
+<h3 id="增删主键约束"><a href="#增删主键约束" class="headerlink" title="增删主键约束"></a>增删主键约束</h3><ul>
+<li>增</li>
+</ul>
+<p>ALTER TABLE table_name ADD [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_column_name,…)</p>
+<p>注意：CONSTRAINT可有可无，有的话可以给主键取名字,symbol表示名字</p>
+<p>举个栗子:</p>
+<p>CREATE TABLE user2(username VARCHAR(10) NOT NULL, pid SMALLINT UNSIGNED);</p>
+<p>ALTER TABLE user2 ADD CONSTRAINT PK_user2_id PRIMARY KEY(pid);</p>
+<ul>
+<li>删</li>
+</ul>
+<p>ALTERT TABLE table_name DROP PRIMARY KEY;</p>
+<h3 id="添删唯一约束"><a href="#添删唯一约束" class="headerlink" title="添删唯一约束"></a>添删唯一约束</h3><ul>
+<li>增</li>
+</ul>
+<p>ALTER TABLE table_name ADD [CONSTRAINT [symbol]] UNIQUE [INDEX | KEY] [index_name] [index_type] (index_column_name, …)</p>
+<p>举个栗子:</p>
+<p>ALTER TABLE user2 ADD UNIQUE (username);</p>
+<ul>
+<li>删</li>
+</ul>
+<p>ALTER TABLE table_name DROP {INDEX|KEY} index_name;</p>
+<p>查看唯一约束名字: &nbsp; SHOW INDEXES FROM table_name;</p>
+<h3 id="添删外键约束"><a href="#添删外键约束" class="headerlink" title="添删外键约束"></a>添删外键约束</h3><ul>
+<li>增</li>
+</ul>
+<p>ALTER TABLE table_name ADD [CONSTRAINT [symbol]] FOREIGN KEY [index_name] (index_column_name,…)reference_definition</p>
+<p>举个栗子:</p>
+<p>ALTER TABLE user2 ADD FOREIGN KEY (pid) REFERENCES provinces (id);</p>
+<ul>
+<li>删</li>
+</ul>
+<p>ALTER TABLE table_name DROP FOREIGN KEY foreign_symbol;</p>
+<p>查看外键约束名字: &nbsp; SHOW CREATE TABLE table_name;</p>
+<h3 id="添删默认约束"><a href="#添删默认约束" class="headerlink" title="添删默认约束"></a>添删默认约束</h3><p>ALTER TABLE table_name ALTER [COLUMN] column_name {SET DEFAULT literal | DROP DEFAULT};</p>
+<h3 id="修改列定义"><a href="#修改列定义" class="headerlink" title="修改列定义"></a>修改列定义</h3><p>ALTER TABLE table_name MODIFY [COLUMN] column_name column_definition [FIRST| AFTER column_name];</p>
+<h3 id="修改列名称-列定义"><a href="#修改列名称-列定义" class="headerlink" title="修改列名称/列定义"></a>修改列名称/列定义</h3><p>ALTER TABLE table_name CHANGE [COLUMN] old_column_name new_column_name column_definition [FIRST | AFTER column_name]</p>
+<h3 id="数据表更名"><a href="#数据表更名" class="headerlink" title="数据表更名"></a>数据表更名</h3><p>方法一：ALTER TABLE table_name RENAME [TO | AS] new_table_name</p>
+<p>方法二：RENAME TABLE table_name TO new_table_name [, table_name2 TO new_table_name2]…</p>
+<p>未完待续 。。。。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/29/Hexo3-Github-搭建个人博客/" rel="next" title="Hexo3 + Github 搭建个人博客">
+                <i class="fa fa-chevron-left"></i> Hexo3 + Github 搭建个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/05/Python-基础/" rel="prev" title="Python 基础">
+                Python 基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Qiang" />
+            
+              <p class="site-author-name" itemprop="name">Qiang</p>
+              <p class="site-description motion-element" itemprop="description">时光怕我太骄傲</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhangxiangqiang" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL安装"><span class="nav-number">2.</span> <span class="nav-text">MySQL安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL基本操作"><span class="nav-number">3.</span> <span class="nav-text">MySQL基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-语句规范"><span class="nav-number">3.1.</span> <span class="nav-text">MySQL 语句规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据类型"><span class="nav-number">4.</span> <span class="nav-text">MySQL数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数字类型"><span class="nav-number">4.1.</span> <span class="nav-text">数字类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期与时间类型"><span class="nav-number">4.2.</span> <span class="nav-text">日期与时间类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据表的增查"><span class="nav-number">5.</span> <span class="nav-text">数据表的增查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据表"><span class="nav-number">5.1.</span> <span class="nav-text">创建数据表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看数据表"><span class="nav-number">5.2.</span> <span class="nav-text">查看数据表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记录的增查"><span class="nav-number">6.</span> <span class="nav-text">记录的增查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向数据表中插入记录"><span class="nav-number">6.1.</span> <span class="nav-text">向数据表中插入记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记录的查找（SELECT"><span class="nav-number">6.2.</span> <span class="nav-text">记录的查找（SELECT)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#约束"><span class="nav-number">7.</span> <span class="nav-text">约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动编号"><span class="nav-number">7.1.</span> <span class="nav-text">自动编号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主键约束"><span class="nav-number">7.2.</span> <span class="nav-text">主键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一约束"><span class="nav-number">7.3.</span> <span class="nav-text">唯一约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认约束"><span class="nav-number">7.4.</span> <span class="nav-text">默认约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键约束"><span class="nav-number">7.5.</span> <span class="nav-text">外键约束</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改数据表"><span class="nav-number">8.</span> <span class="nav-text">修改数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加列"><span class="nav-number">8.1.</span> <span class="nav-text">添加列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除列"><span class="nav-number">8.2.</span> <span class="nav-text">删除列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增删主键约束"><span class="nav-number">8.3.</span> <span class="nav-text">增删主键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添删唯一约束"><span class="nav-number">8.4.</span> <span class="nav-text">添删唯一约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添删外键约束"><span class="nav-number">8.5.</span> <span class="nav-text">添删外键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添删默认约束"><span class="nav-number">8.6.</span> <span class="nav-text">添删默认约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改列定义"><span class="nav-number">8.7.</span> <span class="nav-text">修改列定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改列名称-列定义"><span class="nav-number">8.8.</span> <span class="nav-text">修改列名称/列定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表更名"><span class="nav-number">8.9.</span> <span class="nav-text">数据表更名</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by"></div>
+
+
+
+  <span class="post-meta-divider"></span>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'tAsNLn0Eb4PLviTssGeQ1xLs-gzGzoHsz',
+        app_key: 'qNooYapp6PYxzKWHd25GrPbL',
+        placeholder: '走的是路，交的是朋友，时光短，哪有时间伤感，ヾﾉ≧∀≦)o来啊，快活啊!'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("tAsNLn0Eb4PLviTssGeQ1xLs-gzGzoHsz", "qNooYapp6PYxzKWHd25GrPbL");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
