@@ -67,7 +67,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="nginx,uwsgi,部署,django," />
 
 
 
@@ -78,16 +78,18 @@
 
 
 
-<meta name="description" content="时光怕我太骄傲">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Qiang&#39;s blog">
-<meta property="og:url" content="http://helloqiang.top/index.html">
+<meta name="description" content="一些准备1.咱们在linux下部署，若是Windows系统，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu或深度，在Vmware上新建虚拟机安装ubuntu就行了。本次项目部署，因之前一直在windows上进行，故部署时需要进行一些额外工作，若一使用的是linux系统，则前面几步可以省略，请自行对应。 2.我们使用 nginx + uwsgi 完成Django应用的部署上线，ngin">
+<meta name="keywords" content="nginx,uwsgi,部署,django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django应用部署上线">
+<meta property="og:url" content="http://helloqiang.top/2017/10/13/Django应用部署上线/index.html">
 <meta property="og:site_name" content="Qiang&#39;s blog">
-<meta property="og:description" content="时光怕我太骄傲">
+<meta property="og:description" content="一些准备1.咱们在linux下部署，若是Windows系统，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu或深度，在Vmware上新建虚拟机安装ubuntu就行了。本次项目部署，因之前一直在windows上进行，故部署时需要进行一些额外工作，若一使用的是linux系统，则前面几步可以省略，请自行对应。 2.我们使用 nginx + uwsgi 完成Django应用的部署上线，ngin">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-14T04:39:07.108Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Qiang&#39;s blog">
-<meta name="twitter:description" content="时光怕我太骄傲">
+<meta name="twitter:title" content="Django应用部署上线">
+<meta name="twitter:description" content="一些准备1.咱们在linux下部署，若是Windows系统，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu或深度，在Vmware上新建虚拟机安装ubuntu就行了。本次项目部署，因之前一直在windows上进行，故部署时需要进行一些额外工作，若一使用的是linux系统，则前面几步可以省略，请自行对应。 2.我们使用 nginx + uwsgi 完成Django应用的部署上线，ngin">
 
 
 
@@ -117,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://helloqiang.top/"/>
+  <link rel="canonical" href="http://helloqiang.top/2017/10/13/Django应用部署上线/"/>
 
 
 
 
 
-  <title>Qiang's blog</title>
+  <title>Django应用部署上线 | Qiang's blog</title>
   
 
 
@@ -152,8 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,9 +257,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -288,9 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/13/Django应用部署上线/" itemprop="url">Django应用部署上线</a></h1>
+          <h1 class="post-title" itemprop="name headline">Django应用部署上线</h1>
         
 
         <div class="post-meta">
@@ -382,9 +381,7 @@
       
 
       
-        
-          
-            <h1 id="一些准备"><a href="#一些准备" class="headerlink" title="一些准备"></a>一些准备</h1><p>1.咱们在linux下部署，若是Windows系统，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu或深度，在Vmware上新建虚拟机安装ubuntu就行了。本次项目部署，因之前一直在windows上进行，故部署时需要进行一些额外工作，若一使用的是linux系统，则前面几步可以省略，请自行对应。</p>
+        <h1 id="一些准备"><a href="#一些准备" class="headerlink" title="一些准备"></a>一些准备</h1><p>1.咱们在linux下部署，若是Windows系统，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu或深度，在Vmware上新建虚拟机安装ubuntu就行了。本次项目部署，因之前一直在windows上进行，故部署时需要进行一些额外工作，若一使用的是linux系统，则前面几步可以省略，请自行对应。</p>
 <p>2.我们使用 nginx + uwsgi 完成Django应用的部署上线，nginx是静态服务器，代理静态文件，也负责端口转发，uwsgi是web服务器网关接口实例，用于处理python运行环境，运行django应用</p>
 <p>3.WSGI：一种实现python解析的通用接口协议，实现了python web程序与web 服务器之间交互的通用性。 </p>
 <p>利用它，web.py或django等python web开发框架，就可以轻松地部署在不同的web server上了；</p>
@@ -589,8 +586,6 @@ virtualenv = /home/xxx/.virtualenvs/mxonline
 <p>到这里，我们的部署就完成了，若是用centos部署还有一些权限问题需要处理，需要修改nginx.conf等，这里用的是ubuntu 故关于centos部署问题就不细讲</p>
 <p>#9.上线</p>
 
-          
-        
       
     </div>
     
@@ -605,366 +600,42 @@ virtualenv = /home/xxx/.virtualenvs/mxonline
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://helloqiang.top/2017/10/05/Python-基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qiang's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/05/Python-基础/" itemprop="url">Python 基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T11:03:12+08:00">
-                2017-10-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
           
-            
+            <a href="/tags/uwsgi/" rel="tag"># uwsgi</a>
           
-
+            <a href="/tags/部署/" rel="tag"># 部署</a>
           
+            <a href="/tags/django/" rel="tag"># django</a>
           
-             <span id="/2017/10/05/Python-基础/" class="leancloud_visitors" data-flag-title="Python 基础">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  5,421
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  21
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>人生苦短，快用Python,拿起这片锐利锋芒的柳叶刀,去寻找唯一的答案</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装很简单，直接到官网下载对应版本即可，这里不细讲，注意将其添加到话环境变量</p>
-<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul>
-<li><p>解释器</p>
-<p>在命令行下运行python,就会启动官方版本的解释器CPython。<br>解释器是一种解释(读懂）Python语言的工具，有CPython，IPython，PyPy等多种类型，使用最广泛的还是CPython</p>
-</li>
-<li><p>算法：</p>
-</li>
-</ul>
-<p>算法就是一种计算机能够理解的语言，是对如何做一件事的详细描述，类似于方法步骤。</p>
-<ul>
-<li>变量</li>
-</ul>
-<p>变量表示某个值的名字</p>
-<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>在 Python 中有六种基本数据类型，即数字（包括整形、长整、浮点）、字符串、布尔类型、列表、元组、字典<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/05/Python-基础/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/05/Python-基础/" rel="next" title="Python 基础">
+                <i class="fa fa-chevron-left"></i> Python 基础
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://helloqiang.top/2017/10/03/MySQL-基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qiang's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/03/MySQL-基础/" itemprop="url">MySQL 基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-03T15:05:58+08:00">
-                2017-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/10/03/MySQL-基础/" class="leancloud_visitors" data-flag-title="MySQL 基础">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,704
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  11
-                </span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>MySQL 目前是最流行的开源关系型 SQL 数据库管理系统，是一种用于最适于开发 Web 软件应用的 RDBMS，很多企业都在使用它来构建自己的数据库</p>
-<h2 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h2><p>由于MySQL安装十分简单，这里不过多介绍，去官网下载安装就是了，值得注意的有两点，一是，安装时的选项有typical,custom,和complete,分别表示典型安装，自定义安装，和完全安装，新手建议选择典型安装。二是，注意将其添加到环境变量。</p>
-<h2 id="MySQL基本操作"><a href="#MySQL基本操作" class="headerlink" title="MySQL基本操作"></a>MySQL基本操作</h2><h3 id="MySQL-语句规范"><a href="#MySQL-语句规范" class="headerlink" title="MySQL 语句规范"></a>MySQL 语句规范</h3><p>在最开始，介绍一下MySQL 语句规范，养成良好的习惯：</p>
-<ul>
-<li>关键字和函数名称全部大写</li>
-<li>数据库名称、表名称、字段名称全部小写</li>
-<li>SQL 语句必须以分号结尾
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/03/MySQL-基础/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -974,185 +645,11 @@ virtualenv = /home/xxx/.virtualenvs/mxonline
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://helloqiang.top/2017/09/29/Hexo3-Github-搭建个人博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qiang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qiang's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/29/Hexo3-Github-搭建个人博客/" itemprop="url">Hexo3 + Github 搭建个人博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T17:34:21+08:00">
-                2017-09-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/09/29/Hexo3-Github-搭建个人博客/" class="leancloud_visitors" data-flag-title="Hexo3 + Github 搭建个人博客">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,330
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  9
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo是一款基于Node.js的静态博客框架,依赖少易于安装使用，可以方便的生成静态网页托管在GitHub上，非常方便，遗憾的是，目前网上，用hexo搭建个人博客大多基于hexo2， 我结合自己搭建博客的实践与这两天踩的坑，总结一份教程，后来之人，能少踩一些坑，吾之愿也。</p>
-<p>搭建步骤：</p>
-<ul>
-<li>配置Hexo安装环境</li>
-<li>安装Hexo</li>
-<li>配置Github与推送网站</li>
-<li>订制个性化域名</li>
-<li>一些基本配置</li>
-<li>尾声</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/29/Hexo3-Github-搭建个人博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1160,6 +657,12 @@ virtualenv = /home/xxx/.virtualenvs/mxonline
 
 
           
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
 
         </div>
         
@@ -1180,8 +683,17 @@ virtualenv = /home/xxx/.virtualenvs/mxonline
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1255,6 +767,22 @@ virtualenv = /home/xxx/.virtualenvs/mxonline
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些准备"><span class="nav-number">1.</span> <span class="nav-text">一些准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-安装nginx服务器"><span class="nav-number">2.</span> <span class="nav-text">1. 安装nginx服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-安装MySQL"><span class="nav-number">3.</span> <span class="nav-text">2.安装MySQL</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1386,6 +914,10 @@ virtualenv = /home/xxx/.virtualenvs/mxonline
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
