@@ -78,19 +78,19 @@
 
 
 
-<meta name="description" content="一些准备1.咱们在linux下部署，若是Windows系统，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu或深度，在Vmware上新建虚拟机安装ubuntu就行了。本次项目部署，因之前一直在windows上进行，故部署时需要进行一些额外工作，若一使用的是linux系统，则前面几步可以省略，请自行对应。 2.我们使用 nginx + uwsgi 完成Django应用的部署上线，ngin">
+<meta name="description" content="一些准备 本次在腾讯云服务器上部署，用的是ubuntu16.04.1系统，若是在本地部署测试，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu，在Vmware上新建虚拟机安装ubuntu就行了。  2.我们使用 nginx + uwsgi 完成Django应用的部署上线，nginx是静态服务器，代理静态文件，也负责端口转发，uwsgi是web服务器网关接口实例，用于处理python运行">
 <meta name="keywords" content="nginx,uwsgi,部署,django">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django应用部署上线">
 <meta property="og:url" content="http://helloqiang.top/2017/10/13/Django应用部署上线/index.html">
 <meta property="og:site_name" content="Qiang&#39;s blog">
-<meta property="og:description" content="一些准备1.咱们在linux下部署，若是Windows系统，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu或深度，在Vmware上新建虚拟机安装ubuntu就行了。本次项目部署，因之前一直在windows上进行，故部署时需要进行一些额外工作，若一使用的是linux系统，则前面几步可以省略，请自行对应。 2.我们使用 nginx + uwsgi 完成Django应用的部署上线，ngin">
+<meta property="og:description" content="一些准备 本次在腾讯云服务器上部署，用的是ubuntu16.04.1系统，若是在本地部署测试，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu，在Vmware上新建虚拟机安装ubuntu就行了。  2.我们使用 nginx + uwsgi 完成Django应用的部署上线，nginx是静态服务器，代理静态文件，也负责端口转发，uwsgi是web服务器网关接口实例，用于处理python运行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/%E9%83%A8%E7%BD%B21.png">
-<meta property="og:updated_time" content="2017-10-14T05:04:57.836Z">
+<meta property="og:updated_time" content="2017-10-23T08:43:15.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django应用部署上线">
-<meta name="twitter:description" content="一些准备1.咱们在linux下部署，若是Windows系统，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu或深度，在Vmware上新建虚拟机安装ubuntu就行了。本次项目部署，因之前一直在windows上进行，故部署时需要进行一些额外工作，若一使用的是linux系统，则前面几步可以省略，请自行对应。 2.我们使用 nginx + uwsgi 完成Django应用的部署上线，ngin">
+<meta name="twitter:description" content="一些准备 本次在腾讯云服务器上部署，用的是ubuntu16.04.1系统，若是在本地部署测试，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu，在Vmware上新建虚拟机安装ubuntu就行了。  2.我们使用 nginx + uwsgi 完成Django应用的部署上线，nginx是静态服务器，代理静态文件，也负责端口转发，uwsgi是web服务器网关接口实例，用于处理python运行">
 <meta name="twitter:image" content="http://ox34p6xhh.bkt.clouddn.com/%E9%83%A8%E7%BD%B21.png">
 
 
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,085
+                  2,478
                 </span>
               
 
@@ -362,7 +362,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  10
                 </span>
               
             </div>
@@ -383,7 +383,9 @@
       
 
       
-        <h1 id="一些准备"><a href="#一些准备" class="headerlink" title="一些准备"></a>一些准备</h1><p>1.咱们在linux下部署，若是Windows系统，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu或深度，在Vmware上新建虚拟机安装ubuntu就行了。本次项目部署，因之前一直在windows上进行，故部署时需要进行一些额外工作，若一使用的是linux系统，则前面几步可以省略，请自行对应。</p>
+        <h1 id="一些准备"><a href="#一些准备" class="headerlink" title="一些准备"></a>一些准备</h1><ol>
+<li>本次在腾讯云服务器上部署，用的是ubuntu16.04.1系统，若是在本地部署测试，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu，在Vmware上新建虚拟机安装ubuntu就行了。</li>
+</ol>
 <p>2.我们使用 nginx + uwsgi 完成Django应用的部署上线，nginx是静态服务器，代理静态文件，也负责端口转发，uwsgi是web服务器网关接口实例，用于处理python运行环境，运行django应用</p>
 <p>3.WSGI：一种实现python解析的通用接口协议，实现了python web程序与web 服务器之间交互的通用性。 </p>
 <p>利用它，web.py或django等python web开发框架，就可以轻松地部署在不同的web server上了；</p>
@@ -392,6 +394,7 @@
 <p>apache、nginx等，它们自己都没有解析动态语言的功能，而是分派给其他模块来做 </p>
 <p>工作流程如下：</p>
 <p><img src="http://ox34p6xhh.bkt.clouddn.com/%E9%83%A8%E7%BD%B21.png" alt="时光怕我太骄傲"></p>
+<a id="more"></a>
 <ul>
 <li><p>首先客户端请求服务资源</p>
 </li>
@@ -406,23 +409,28 @@
 <li><p>uWSGI接收后转发给nginx,nginx最终将返回值返回给客户端(如浏览器)。<br>*注:不同的组件之间传递信息涉及到数据格式和协议的转换</p>
 </li>
 </ul>
-<h1 id="1-安装nginx服务器"><a href="#1-安装nginx服务器" class="headerlink" title="1. 安装nginx服务器"></a>1. 安装nginx服务器</h1><p>1.安装</p>
+<p>4.若是直接在云虚拟机或者服务器中部署，可以先安装串行接口连接软件PuTTY,以连接云虚拟机。然后安装WinSCP或者FileZilla以上传项目源文件，注意上传前先压缩,之后在虚拟机中解压。</p>
+<pre><code>解压zip文件到当前目录：
+
+unzip filename.zip
+</code></pre><h1 id="1-安装nginx服务器"><a href="#1-安装nginx服务器" class="headerlink" title="1. 安装nginx服务器"></a>1. 安装nginx服务器</h1><p>1.安装</p>
 <pre><code>sudo apt-get install nginx
 </code></pre><p>2.查看进程，看nginx是否已经启动</p>
 <pre><code>ps aux|grep nginx
 </code></pre><p>3.访问nginx</p>
-<pre><code>查看ip地址(inet后192.168...)： ifconfig
-</code></pre><p>在浏览器中输入地址访问。</p>
+<pre><code>查看ip地址： ifconfig
+</code></pre><p>在浏览器中输入地址访问,若是用虚拟机部署直接用外网ip访问，切记一步步落实，一个问题容易处理，两个三个问题叠在一起，问题就变得复杂了。</p>
 <h1 id="2-安装MySQL"><a href="#2-安装MySQL" class="headerlink" title="2.安装MySQL"></a>2.安装MySQL</h1><p>1.安装</p>
 <pre><code>sudo apt-get install mysql-server
 </code></pre><p>2.配置MySQL</p>
 <ul>
 <li><p>MySQL 的ip绑定</p>
 <p>  编辑配置文件：sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</p>
-<p>  内部有bind-address = 127.0.0.1, 为了能在windows中把用navicat连接过来，我们需要把127.0.0.1 改为 0.0.0.0（真正部署时不需要改，此处只是因为虚拟机不方便），连接后我们可以新建一个数据库</p>
+<p>  内部有bind-address = 127.0.0.1, 为了能在windows中把用navicat连接过来，我们需要把127.0.0.1 改为 0.0.0.0（真正部署时尽量不改），连接后我们可以新建一个数据库</p>
 <p>  重启MySQL 让配置生效：sudo service mysql restart</p>
-<p>  先在，我们可以进入到windows navicat中，点击我们项目的数据库，选择数据传输，把项目数据传输到我们刚才新建的数据库里</p>
 </li>
+</ul>
+<ul>
 <li><p>MySQL 连接配置</p>
 <p>  进入MySQL ： mysql -u root -p<br>  配置连接权限： GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’(用户名）@’%’ IDENTIFIED BY ‘qing’(密码）WITH GRANT OPTION;</p>
 <p>  *.* 表示所有表</p>
@@ -430,17 +438,19 @@
 <p>  刷新权限： FLUSH PRIVILEGES;</p>
 </li>
 </ul>
-<p>现在可以尝试在windows内用navicat连接了</p>
+<p>现在可以尝试在windows内用navicat连接了，连接之后在连接内新建数据库，然后使用数据传输将项目的数据库传输过去。</p>
 <p>#3.安装虚拟环境</p>
 <pre><code>pip install virtualenv
 pip install virtualenvwrapper
 </code></pre><p>配置虚拟环境：<br>    vim ~/.bashrc   # 编辑主目录下的.bashrc 文件</p>
 <pre><code>在最后一行：
-写上： export WORKON_HOME = $HOME/.virtualenvs
+写上下面两行代码：
+
+     export WORKON_HOME=$HOME/.virtualenvs
 
       source /home/qing/.local/bin/virtualenvwrapper.sh
 
-这里需要找到virtualenvwrapper.sh文件路径（可按照上面给出路径找）
+这里需要找到virtualenvwrapper.sh文件路径（可按照上面给出路径找，一般把qing换成用户名即可）
 
 
 上面WORKON_HOME表示virtualenvwrapper保存的虚拟环境的路径
@@ -448,8 +458,9 @@ pip install virtualenvwrapper
 然后，wq! 保存并退出
 </code></pre><p>运行下面命令，让配置生效：</p>
 <pre><code>source ~/.bashrc  
-</code></pre><p>现在可以新建虚拟环境了： virtualenv mxonline</p>
-<p>#4.安装基础依赖包<br>注意：若是项目一直在linux系统</p>
+</code></pre><p>现在可以新建虚拟环境了： mkvirtualenv mxonline</p>
+<p>后续操作在虚拟环境下执行。</p>
+<p>#4.安装基础依赖包<br>注意：若是项目一直在linux系统,则不需要</p>
 <p>为了方便安装依赖包，我们先看看在windows上我们安装了哪些包，下面举个栗子：</p>
 <pre><code>windows中：
 进入项目虚拟环境：workon mxonline
@@ -471,7 +482,8 @@ ubuntu：
 
 然后继续 执行安装：
     pip install -r requirements.txt
-</code></pre><p>#5.补充知识</p>
+</code></pre><p>注意：这里若要安装DjangoUeditor出问题，可以下载源码包安装</p>
+<p>#5.补充知识</p>
 <p>之前出现了几个地址可能给一些刚接触的小伙伴造成迷惑，这里解释一下;</p>
 <p>0.0.0.0  : 当前设备ip，所有不清楚主机和目的网络的一律送进去</p>
 <p>127.0.0.1 : 回送地址 ，指向本地机</p>
@@ -487,14 +499,17 @@ wq!                # 保存并退出（加不加！都行，加！表强制执�
 pwd                #查看当前位置
 ls                 # 查看目录内容列表
 mkdir              # 新建目录
+pkill -f -9 uwsgi   # 结束uwsgi
+rm  symbolic_name（路径,结尾没有/) #删除软连接
 </code></pre><p>#6. 安装uwsgi</p>
 <pre><code>pip install uwsgi
-</code></pre><p>测试uwsgi</p>
+</code></pre><p>测试uwsgi（在项目目录下）:</p>
 <pre><code>uwsgi --http :8000 --module MxOnline.wsgi
 </code></pre><p>意思是用uwsgi,在http :8000端口上启动 MxOnline 下面的wsgi文件。</p>
-<p>在用uwsgi启动前，我们也可以测试一下我们的项目能否正常启动，测试:python manage.py runserver 0.0.0.0:8000</p>
+<p>在用uwsgi启动前，我们也可以进入项目目录内，测试一下我们的项目能否正常启动，测试:python manage.py runserver 0.0.0.0:8000</p>
 <p>现在我们可以在浏览器中用ip访问我们的网站了，如此，uwsgi可以把我们的项目拉动起来，但是显然还不够，我们的静态文件还没有处理</p>
-<p>#7. 配置nginx<br>1.</p>
+<p>注意：若是用的云服务器，测试的时候，要用外网ip</p>
+<p>#7. 配置nginx<br>1.在项目目录下:</p>
 <pre><code>新建uc_nginx.conf：
 
     mkdir conf
@@ -503,45 +518,47 @@ mkdir              # 新建目录
     在uc_nginx.conf中写入如下内容：
 
 
-    # the upstream component nginx needs to connect to
-    upstream django {
-    # server unix:///path/to/your/mysite/mysite.sock; # for a file socket
-    server 127.0.0.1:8000; # for a web port socket (we&apos;ll use this first)
-    }
-    # configuration of the server
+# the upstream component nginx needs to connect to
+upstream django {
+# server unix:///path/to/your/mysite/mysite.sock; # for a file socket
+server 127.0.0.1:8000; # for a web port socket (we&apos;ll use this first)
+}
+# configuration of the server
 
-    server {
-    # the port your site will be served on
-    listen      80;
-    # the domain name it will serve for
-    server_name 你的ip地址 ; # substitute your machine&apos;s IP address or FQDN
-    charset     utf-8;
+server {
+# the port your site will be served on
+listen      80;
+# the domain name it will serve for
+server_name 你的ip地址 ; # substitute your machine&apos;s IP address or FQDN
+charset     utf-8;
 
-    # max upload size
-    client_max_body_size 75M;   # adjust to taste
+# max upload size
+client_max_body_size 75M;   # adjust to taste
 
-    # Django media
-    location /media  {
-        alias 你的目录/Mxonline/media;  # 指向django的media目录
-    }
+# Django media
+location /media  {
+alias /home/ubuntu/MxOnline/media;  # 指向django的media目录
+}
 
-    location /static {
-        alias 你的目录/Mxonline/static; # 指向django的static目录
-    }
+location /static {
+alias /home/ubuntu/MxOnline/static; # 指向django的static目录
+}
 
-    # Finally, send all non-media requests to the Django server.
-    location / {
-        uwsgi_pass  django;
-        include     uwsgi_params; # the uwsgi_params file you installed
-    }
-    }
-</code></pre><p>其中server_name 你的ip地址，即可以是ip地址，也可以是域名（可以把域名加在ip后面），然后要改一下media 和static 的路径</p>
+# Finally, send all non-media requests to the Django server.
+location / {
+uwsgi_pass  django;
+include     uwsgi_params; # the uwsgi_params file you installed
+}
+}
+</code></pre><p>其中server_name 你的ip地址，即可以是ip地址，也可以是域名（可以把域名加在ip后面），若是一会儿启动时，然后要改一下media 和static 的路径，nginx 修改后要重启</p>
+<p>注意：这一段要顶格写，无缩进， 格外注意复制时首尾别漏字符，<strong>这很重要</strong>！</p>
 <p>2.将该配置文件加入到nginx的启动配置文件中</p>
 <pre><code> sudo ln -s 你的目录/MxOnline/conf/nginx/uc_nginx.conf /etc/nginx/conf.d/
 
 也可以：
 sudo cp uc_nginx.conf /etc/nginx/conf.d/
-</code></pre><p>重启nginx: sudo service nginx restart</p>
+</code></pre><p>注意：若是用第二种方法，之后修改uc_nginx.conf时，还要去/etc/nginx/conf.d/下修改uc_nginx.conf，<strong>这很重要</strong>！nginx 会读取/etc/nginx/conf.d/下的uc_nginx.conf文件。</p>
+<p>重启nginx: sudo service nginx restart</p>
 <ol>
 <li>拉取所有需要的static file 到同一个目录</li>
 </ol>
@@ -549,8 +566,9 @@ sudo cp uc_nginx.conf /etc/nginx/conf.d/
 <pre><code>    STATIC_ROOT = os.path.join(BASE_DIR, &quot;static/&quot;)
 运行命令
     python manage.py collectstatic
-</code></pre><p>当然首先要：vim MxOnline/settings.py ,之后再进行上面操作</p>
-<p>注意：STATIC_ROOT 和 STATICFILES_DIRS 不能同时存在，若之前写有STATICFILES_DIRS要将其注释掉</p>
+</code></pre><p>注意之后凡是涉及增删静态文件的，都要运行一次 python manage.py collectstatic，<strong>这很重要</strong>！</p>
+<p>当然首先要：vim MxOnline/settings.py ,之后再进行上面操作</p>
+<p>注意：在生产环境中，将DEBUG = False, django 不会代管静态文件，STATICFILES_DIRS 将会失效，若之前写有STATICFILES_DIRS要将其注释掉,并且配置完STATIC_ROOT后，要在urls.py中配置static文件的路径处理：url(r’^static/(?P<path></path>.*)$’, serve, {“document_root”: STATIC_ROOT})</p>
 <p>#8.通过配置文件启动uwsgi</p>
 <p>1.我们进入到MxOnline/conf下边： vim uwsgi.ini</p>
 <p>新建uwsgi.ini 配置文件， 内容如下：</p>
@@ -559,7 +577,7 @@ sudo cp uc_nginx.conf /etc/nginx/conf.d/
 
 # Django-related settings
 # the base directory (full path)/工程路径
-chdir           = /home/xxx/Projects/MxOnline
+chdir           = /home/ubuntu/MxOnline
 # Django&apos;s wsgi file
 module          = MxOnline.wsgi
 # the virtualenv (full path)
@@ -576,17 +594,19 @@ socket          = 127.0.0.1:8000
 # clear environment on exit
 vacuum          = true
 # virtualenv路径
-virtualenv = /home/xxx/.virtualenvs/mxonline
-</code></pre><p> chdir： 表示需要操作的目录，也就是项目的目录</p>
+virtualenv = /home/ubuntu/.virtualenvs/mxonline
+</code></pre><p>注意：要顶格写，无缩进 </p>
+<p>chdir： 表示需要操作的目录，也就是项目的目录</p>
 <p>module： wsgi文件的路径</p>
 <p>processes： 进程数</p>
 <p>virtualenv：虚拟环境的目录</p>
-<p>2.现在我们可以启动了uwsgi：uwsgi -i 你的目录/MxOnline/conf/uwsgi.ini &amp;</p>
+<p>2.现在我们可以启动了uwsgi：uwsgi -i /home/ubuntu/MxOnline/conf/uwsgi.ini &amp;</p>
 <p>并且可以访问：<a href="http://你的ip地址/" target="_blank" rel="external">http://你的ip地址/</a></p>
 <p>当然为了网站安全，别忘了把MxOnline/settings.py里，<br>DEBUG改为False</p>
-<p>重启uwsgi: pkill -f uwsgi</p>
-<p>到这里，我们的部署就完成了，若是用centos部署还有一些权限问题需要处理，需要修改nginx.conf等，这里用的是ubuntu 故关于centos部署问题就不细讲</p>
-<p>#9.上线</p>
+<pre><code>重启uwsgi: pkill -f uwsgi
+结束uwsgi: pkill -f -9 uwsgi
+</code></pre><p>到这里，我们的部署就完成了，若是用centos部署还有一些权限问题需要处理，需要修改nginx.conf等，这里用的是ubuntu 故关于centos部署问题就不细讲.</p>
+<p>过程很简单最容易出错的地方是，两个配置文件在复制的时候容易缺漏，还有静态文件在有改动后要重新python manage.py collectstatic</p>
 
       
     </div>
