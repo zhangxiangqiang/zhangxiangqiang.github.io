@@ -87,7 +87,7 @@
 <meta property="og:description" content="一些准备1.本次在腾讯云服务器上部署，用的是ubuntu16.04.1系统，若是在本地部署测试，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu，在Vmware上新建虚拟机安装ubuntu就行了。 2.我们使用 nginx + uwsgi 完成Django应用的部署上线，nginx是静态服务器，代理静态文件，也负责端口转发，uwsgi是web服务器网关接口实例，用于处理python运行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ox34p6xhh.bkt.clouddn.com/%E9%83%A8%E7%BD%B21.png">
-<meta property="og:updated_time" content="2017-10-26T14:33:00.043Z">
+<meta property="og:updated_time" content="2017-11-03T15:11:16.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django应用部署上线">
 <meta name="twitter:description" content="一些准备1.本次在腾讯云服务器上部署，用的是ubuntu16.04.1系统，若是在本地部署测试，建议安装虚拟机。下载并安装Vmware,然后下载ubuntu，在Vmware上新建虚拟机安装ubuntu就行了。 2.我们使用 nginx + uwsgi 完成Django应用的部署上线，nginx是静态服务器，代理静态文件，也负责端口转发，uwsgi是web服务器网关接口实例，用于处理python运行">
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,471
+                  2,480
                 </span>
               
 
@@ -548,7 +548,7 @@ uwsgi_pass  django;
 include     uwsgi_params; # the uwsgi_params file you installed
 }
 }
-</code></pre><p>其中server_name 你的ip地址，即可以是ip地址，也可以是域名（可以把域名加在ip后面），若是一会儿启动时，然后要改一下media 和static 的路径，nginx 修改后要重启</p>
+</code></pre><p>其中server_name 你的ip地址，即可以是ip地址，也可以是域名（可以把域名加在ip后面），代表nginx 要代理的地址，若是一会儿启动时，然后要改一下media 和static 的路径，nginx 修改后要重启</p>
 <p>注意：这一段要顶格写，无缩进， 格外注意复制时首尾别漏字符，<strong>这很重要</strong>！</p>
 <p>2.将该配置文件加入到nginx的启动配置文件中</p>
 <pre><code> sudo ln -s 你的目录/MxOnline/conf/nginx/uc_nginx.conf /etc/nginx/conf.d/
@@ -651,10 +651,6 @@ virtualenv = /home/ubuntu/.virtualenvs/mxonline
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/30/让你胆怯的，让你强大/" rel="prev" title="'让你胆怯的，让你强大'">
-                '让你胆怯的，让你强大' <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -736,7 +732,7 @@ virtualenv = /home/ubuntu/.virtualenvs/mxonline
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -747,7 +743,7 @@ virtualenv = /home/ubuntu/.virtualenvs/mxonline
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -758,7 +754,7 @@ virtualenv = /home/ubuntu/.virtualenvs/mxonline
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
